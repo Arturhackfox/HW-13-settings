@@ -60,7 +60,8 @@ class CustomCellWithToggle: UITableViewCell {
             iconBackground.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             iconBackground.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -345),
             iconBackground.centerYAnchor.constraint(equalTo: centerYAnchor),
-            iconBackground.heightAnchor.constraint(equalToConstant: 30),
+            iconBackground.topAnchor.constraint(equalTo: topAnchor, constant: 7),
+            iconBackground.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -7),
             
             iconImage.centerYAnchor.constraint(equalTo: centerYAnchor),
             iconImage.topAnchor.constraint(equalTo: iconBackground.topAnchor, constant: 5),
