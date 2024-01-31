@@ -17,6 +17,7 @@
 		324DCC632B6A56470018E86E /* CustomCellClean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC622B6A56470018E86E /* CustomCellClean.swift */; };
 		324DCC652B6A5BF90018E86E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC642B6A5BF90018E86E /* DetailView.swift */; };
 		324DCC672B6A5EBB0018E86E /* CustomCellWithBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC662B6A5EBB0018E86E /* CustomCellWithBadge.swift */; };
+		32D4A5D62B6A7F59002C5FC5 /* CustomCellWithStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A5D52B6A7F59002C5FC5 /* CustomCellWithStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		324DCC622B6A56470018E86E /* CustomCellClean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellClean.swift; sourceTree = "<group>"; };
 		324DCC642B6A5BF90018E86E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		324DCC662B6A5EBB0018E86E /* CustomCellWithBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellWithBadge.swift; sourceTree = "<group>"; };
+		32D4A5D52B6A7F59002C5FC5 /* CustomCellWithStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellWithStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				324DCC622B6A56470018E86E /* CustomCellClean.swift */,
 				324DCC642B6A5BF90018E86E /* DetailView.swift */,
 				324DCC662B6A5EBB0018E86E /* CustomCellWithBadge.swift */,
+				32D4A5D52B6A7F59002C5FC5 /* CustomCellWithStatus.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				324DCC472B6A2D170018E86E /* AppDelegate.swift in Sources */,
 				324DCC652B6A5BF90018E86E /* DetailView.swift in Sources */,
 				324DCC5E2B6A37940018E86E /* CustomCellWithToggle.swift in Sources */,
+				32D4A5D62B6A7F59002C5FC5 /* CustomCellWithStatus.swift in Sources */,
 				324DCC492B6A2D170018E86E /* SceneDelegate.swift in Sources */,
 				324DCC612B6A49870018E86E /* ListModel.swift in Sources */,
 			);

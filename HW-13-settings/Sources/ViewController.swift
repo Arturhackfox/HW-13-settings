@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         tableView.register(CustomCellWithToggle.self, forCellReuseIdentifier: CustomCellWithToggle.identifier)
         tableView.register(CustomCellClean.self, forCellReuseIdentifier: CustomCellClean.identifier)
         tableView.register(CustomCellWithBadge.self, forCellReuseIdentifier: CustomCellWithBadge.identifier)
+        tableView.register(CustomCellWithStatus.self, forCellReuseIdentifier: CustomCellWithStatus.identifier)
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -80,6 +81,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let cellToggle = tableView.dequeueReusableCell(withIdentifier: CustomCellWithToggle.identifier, for: indexPath) as? CustomCellWithToggle
         let cellClean = tableView.dequeueReusableCell(withIdentifier: CustomCellClean.identifier, for: indexPath) as? CustomCellClean
         let cellWithBadge = tableView.dequeueReusableCell(withIdentifier: CustomCellWithBadge.identifier, for: indexPath) as? CustomCellWithBadge
+        let cellWithStatus = tableView.dequeueReusableCell(withIdentifier: CustomCellWithStatus.identifier, for: indexPath) as? CustomCellWithStatus
         
               // Data
         
@@ -90,10 +92,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cellToggle?.configureListModel(with: data)
         cellClean?.configureListModel(with: data)
         cellWithBadge?.configureListModel(with: data)
+        cellWithStatus?.configureListModel(with: data)
         
         // Accessories
         cellClean?.accessoryType = .disclosureIndicator
         cellWithBadge?.accessoryType = .disclosureIndicator
+        cellWithStatus?.accessoryType = .disclosureIndicator
         
         // Which cell to display
         if indexPath.section == 0 && toggleSections.contains(indexPath.row) {
