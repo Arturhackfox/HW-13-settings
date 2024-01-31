@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     // MARK: - Variables
     
     private var listModelData = [[ListModel]]()
+    private var toggleSections = [0, 5]
     
     // MARK: - Ui
     
@@ -19,6 +20,7 @@ class ViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(CustomCellWithToggle.self, forCellReuseIdentifier: CustomCellWithToggle.identifier)
+        tableView.register(CustomCellClean.self, forCellReuseIdentifier: CustomCellClean.identifier)
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -74,11 +76,25 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Cell setup
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCellWithToggle.identifier, for: indexPath) as? CustomCellWithToggle
-        let data = listModelData[indexPath.section][indexPath.row]
-        cell?.configureListModel(with: data)
+        let cellToggle = tableView.dequeueReusableCell(withIdentifier: CustomCellWithToggle.identifier, for: indexPath) as? CustomCellWithToggle
+        let cellClean = tableView.dequeueReusableCell(withIdentifier: CustomCellClean.identifier, for: indexPath) as? CustomCellClean
         
-        return cell ?? UITableViewCell()
+              // Data
+        
+        let data = listModelData[indexPath.section][indexPath.row]
+        
+        // Transferring data to cells
+        
+        cellToggle?.configureListModel(with: data)
+        cellClean?.configureListModel(with: data)
+        
+        // Which cell to display
+        if indexPath.section == 0 && toggleSections.contains(indexPath.row) {
+            return cellToggle ?? UITableViewCell()
+        } else {
+            return cellClean ?? UITableViewCell()
+       
+    }
     }
     
     // MARK: - Tapped on cell

@@ -14,6 +14,7 @@
 		324DCC532B6A2D180018E86E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324DCC512B6A2D180018E86E /* LaunchScreen.storyboard */; };
 		324DCC5E2B6A37940018E86E /* CustomCellWithToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC5D2B6A37940018E86E /* CustomCellWithToggle.swift */; };
 		324DCC612B6A49870018E86E /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC602B6A49870018E86E /* ListModel.swift */; };
+		324DCC632B6A56470018E86E /* CustomCellClean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC622B6A56470018E86E /* CustomCellClean.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		324DCC542B6A2D180018E86E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		324DCC5D2B6A37940018E86E /* CustomCellWithToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellWithToggle.swift; sourceTree = "<group>"; };
 		324DCC602B6A49870018E86E /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		324DCC622B6A56470018E86E /* CustomCellClean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellClean.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				324DCC4A2B6A2D170018E86E /* ViewController.swift */,
 				324DCC5D2B6A37940018E86E /* CustomCellWithToggle.swift */,
+				324DCC622B6A56470018E86E /* CustomCellClean.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				324DCC632B6A56470018E86E /* CustomCellClean.swift in Sources */,
 				324DCC4B2B6A2D170018E86E /* ViewController.swift in Sources */,
 				324DCC472B6A2D170018E86E /* AppDelegate.swift in Sources */,
 				324DCC5E2B6A37940018E86E /* CustomCellWithToggle.swift in Sources */,

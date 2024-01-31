@@ -1,5 +1,5 @@
 //
-//  CustomCellWithToggle.swift
+//  CustomCellClean.swift
 //  HW-13-settings
 //
 //  Created by Arthur Sh on 31.01.2024.
@@ -7,11 +7,10 @@
 
 import UIKit
 
-class CustomCellWithToggle: UITableViewCell {
-    
+class CustomCellClean: UITableViewCell {
     // MARK: - Virables
     
-    static var identifier = "CustomCellWithToggle"
+    static var identifier = "CustomCellClean"
     
     // MARK: - Ui
     
@@ -40,15 +39,7 @@ class CustomCellWithToggle: UITableViewCell {
         
         return label
     }()
-    
-    private lazy var toggleSwitch: UISwitch = {
-        let toggle = UISwitch()
-        toggle.translatesAutoresizingMaskIntoConstraints = false
-        toggle.isOn = false
-        toggle.preferredStyle = .sliding
-        
-        return toggle
-    }()
+
     
     
     
@@ -70,7 +61,6 @@ class CustomCellWithToggle: UITableViewCell {
         addSubview(iconBackground)
         addSubview(iconImage)
         addSubview(rowLabel)
-        addSubview(toggleSwitch)
     }
     
     private func setupLayout() {
@@ -88,11 +78,7 @@ class CustomCellWithToggle: UITableViewCell {
             iconImage.trailingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: -5),
             
             rowLabel.leadingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: 15),
-            rowLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
-            toggleSwitch.centerYAnchor.constraint(equalTo: centerYAnchor),
-            toggleSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
-            
+            rowLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
@@ -133,5 +119,5 @@ class CustomCellWithToggle: UITableViewCell {
           
           return newImage ?? UIImage()
       }
-    
+
 }
