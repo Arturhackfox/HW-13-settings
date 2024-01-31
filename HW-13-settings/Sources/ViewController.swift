@@ -91,11 +91,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cellClean?.configureListModel(with: data)
         cellWithBadge?.configureListModel(with: data)
         
+        // Accessories
+        cellClean?.accessoryType = .disclosureIndicator
+        cellWithBadge?.accessoryType = .disclosureIndicator
+        
         // Which cell to display
         if indexPath.section == 0 && toggleSections.contains(indexPath.row) {
             return cellToggle ?? UITableViewCell()
         } else if indexPath.section == 2 && indexPath.row == 0{
-            CustomCellWithBadge ?? UITableViewCell()
+            return cellWithBadge ?? UITableViewCell()
         } else {
             return cellClean ?? UITableViewCell()
        

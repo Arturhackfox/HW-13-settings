@@ -39,6 +39,19 @@ class CustomCellWithBadge: UITableViewCell {
         
         return label
     }()
+    
+    private lazy var badgeLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .red
+        label.backgroundColor = .red
+        label.textAlignment = .center
+        label.layer.cornerRadius = 15
+        label.layer.masksToBounds = true
+        label.font = .systemFont(ofSize: 35, weight: .light)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
 
     
     
@@ -61,6 +74,7 @@ class CustomCellWithBadge: UITableViewCell {
         addSubview(iconBackground)
         addSubview(iconImage)
         addSubview(rowLabel)
+        addSubview(badgeLabel)
     }
     
     private func setupLayout() {
@@ -78,7 +92,11 @@ class CustomCellWithBadge: UITableViewCell {
             iconImage.trailingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: -5),
             
             rowLabel.leadingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: 15),
-            rowLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+            rowLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            badgeLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            badgeLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
         ])
     }
     
