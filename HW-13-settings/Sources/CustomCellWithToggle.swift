@@ -35,6 +35,15 @@ class CustomCellWithToggle: UITableViewCell {
         return view
     }()
     
+    private lazy var rowLabel: UILabel = {
+        let label =  UILabel()
+        label.text = "Авиарежим"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    
     
     // MARK: - Init
     
@@ -53,6 +62,7 @@ class CustomCellWithToggle: UITableViewCell {
     private func setupHierarchy() {
         addSubview(iconBackground)
         addSubview(iconImage)
+        addSubview(rowLabel)
     }
     
     private func setupLayout() {
@@ -68,6 +78,9 @@ class CustomCellWithToggle: UITableViewCell {
             iconImage.bottomAnchor.constraint(equalTo: iconBackground.bottomAnchor, constant: -5),
             iconImage.leadingAnchor.constraint(equalTo: iconBackground.leadingAnchor, constant: 5),
             iconImage.trailingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: -5),
+            
+            rowLabel.leadingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: 15),
+            rowLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
         ])
     }
