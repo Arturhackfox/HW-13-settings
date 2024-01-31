@@ -41,18 +41,18 @@ class CustomCellWithBadge: UITableViewCell {
     }()
     
     private lazy var badgeLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .red
-        label.backgroundColor = .red
+        let label =  UILabel()
+        label.text = "1"
         label.textAlignment = .center
-        label.layer.cornerRadius = 5
-        label.layer.masksToBounds = true
-        label.font = .systemFont(ofSize: 45, weight: .light)
         label.translatesAutoresizingMaskIntoConstraints = false
-        
+        label.textColor = .white
+        label.font = .preferredFont(forTextStyle: .title3)
+        label.backgroundColor = .red
+        label.layer.cornerRadius = 11
+        label.layer.masksToBounds = true
         return label
     }()
-
+    
     
     
     
@@ -94,8 +94,9 @@ class CustomCellWithBadge: UITableViewCell {
             rowLabel.leadingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: 15),
             rowLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            badgeLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            badgeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
             badgeLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            badgeLabel.widthAnchor.constraint(equalToConstant: 30)
             
         ])
     }
@@ -109,7 +110,7 @@ class CustomCellWithBadge: UITableViewCell {
         if model.imageName == bluetooth  {
             if let image = UIImage(named: bluetooth){
                 let resizedImage = resizeImage(image, targetSize: CGSize(width: 20, height: 20))
-
+                
                 iconImage.image = resizedImage
             }
         } else if model.imageName == vpn {
@@ -124,18 +125,18 @@ class CustomCellWithBadge: UITableViewCell {
     }
     
     private func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
-          let size = image.size
-          let widthRatio = targetSize.width / size.width
-          let heightRatio = targetSize.height / size.height
-          let newSize = widthRatio > heightRatio ? CGSize(width: size.width * heightRatio, height: size.height * heightRatio) : CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
-          
-          let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-          UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-          image.draw(in: rect)
-          let newImage = UIGraphicsGetImageFromCurrentImageContext()
-          UIGraphicsEndImageContext()
-          
-          return newImage ?? UIImage()
-      }
-
+        let size = image.size
+        let widthRatio = targetSize.width / size.width
+        let heightRatio = targetSize.height / size.height
+        let newSize = widthRatio > heightRatio ? CGSize(width: size.width * heightRatio, height: size.height * heightRatio) : CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+        
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage ?? UIImage()
+    }
+    
 }
