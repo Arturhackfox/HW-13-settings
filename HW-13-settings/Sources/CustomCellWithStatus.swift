@@ -41,7 +41,6 @@ class CustomCellWithStatus: UITableViewCell {
     
     private lazy var rowLabel: UILabel = {
         let label =  UILabel()
-        label.text = "Авиарежим"
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -49,7 +48,7 @@ class CustomCellWithStatus: UITableViewCell {
     
     private lazy var statusLabel: UILabel = {
         let label =  UILabel()
-        label.text = "Авиарежим"
+        label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
