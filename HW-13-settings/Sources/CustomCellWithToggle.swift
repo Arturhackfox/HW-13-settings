@@ -44,8 +44,8 @@ class CustomCellWithToggle: UITableViewCell {
     private lazy var toggleSwitch: UISwitch = {
         let toggle = UISwitch()
         toggle.translatesAutoresizingMaskIntoConstraints = false
-        toggle.isOn = false
-        toggle.preferredStyle = .sliding
+        toggle.setOn(false, animated: true)
+        toggle.addTarget(self, action: #selector(switchValueChanged), for: .touchUpInside)
         
         return toggle
     }()
@@ -133,5 +133,9 @@ class CustomCellWithToggle: UITableViewCell {
           
           return newImage ?? UIImage()
       }
+    
+    @objc private func switchValueChanged() {
+        toggleSwitch.isOn = true
+    }
     
 }

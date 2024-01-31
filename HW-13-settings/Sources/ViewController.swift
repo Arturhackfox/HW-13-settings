@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
     }
@@ -109,12 +109,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let data = listModelData[indexPath.section][indexPath.row]
         pushVc.listModel = data
         
-        navigationController?.pushViewController(pushVc, animated: true)
+        if indexPath.section == 0 && indexPath.row != 0 && indexPath.row != 5 {
+            navigationController?.pushViewController(pushVc, animated: true)
+        } 
     }
+    
     
     // MARK: - Height of row
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
+    
+
 }

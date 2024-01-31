@@ -33,7 +33,8 @@ struct ListModel: Hashable {
         [ListModel(imageName: "gear", rowName: "Основные", imageBackgroundColor: UIColor.systemGray),
          ListModel(imageName: "switch.2", rowName: "Пункт управления", imageBackgroundColor: UIColor.systemGray),
          ListModel(imageName: "textformat.size", rowName: "Экран и яркость", imageBackgroundColor: UIColor.systemBlue),
-         
+         ListModel(imageName: "apps.ipad.landscape", rowName: "Экран Домой", imageBackgroundColor: UIColor.systemBlue),
+         ListModel(imageName: "accessibility", rowName: "Универсальный доступ", imageBackgroundColor: UIColor.systemBlue)
         ]
     ]
 }
