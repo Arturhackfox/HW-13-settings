@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     
     // MARK: - Variables
     
+    private var listModelData = [[ListModel]]()
+    
     // MARK: - Ui
     
     private lazy var tableView: UITableView = {
@@ -27,6 +29,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        listModelData = ListModel.data
         view.backgroundColor = .white
         title = "Настройки"
         setupHierarchy()
@@ -58,23 +61,24 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Number of sections
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        2
+        listModelData.count
     }
     
     
     // MARK: - Number of rows
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        listModelData[section].count
     }
     
     // MARK: - Cell setup
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCellWithToggle.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCellWithToggle.identifier, for: indexPath) as? CustomCellWithToggle
+        let data = listModelData[indexPath.section][indexPath.row]
+        cell?.configureListModel(with: data)
         
-        
-        return cell
+        return cell ?? UITableViewCell()
     }
     
     // MARK: - Tapped on cell

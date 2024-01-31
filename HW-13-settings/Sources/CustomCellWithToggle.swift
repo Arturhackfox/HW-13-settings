@@ -16,8 +16,7 @@ class CustomCellWithToggle: UITableViewCell {
     // MARK: - Ui
     
     private lazy var iconImage: UIImageView = {
-        let image = UIImage(systemName: "airplane")
-        let imageView = UIImageView(image: image)
+        let imageView = UIImageView()
         imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
         
@@ -28,7 +27,6 @@ class CustomCellWithToggle: UITableViewCell {
     private lazy var iconBackground: UILabel = {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemOrange
         view.layer.cornerRadius = 7
         view.layer.masksToBounds = true
         
@@ -96,6 +94,22 @@ class CustomCellWithToggle: UITableViewCell {
             toggleSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
             
         ])
+    }
+    
+    // MARK: - Actions
+    
+    func configureListModel(with model: ListModel) {
+        let bluetooth = "bluetooth"
+        let vpn = "vpn"
+        iconBackground.backgroundColor = model.imageBackgroundColor
+        if model.imageName == bluetooth  {
+            iconImage.image = UIImage(named: bluetooth)
+        } else if model.imageName == vpn {
+            iconImage.image = UIImage(named: vpn)
+        } else {
+            iconImage.image = UIImage(systemName: model.imageName)
+
+        }
     }
     
 }
