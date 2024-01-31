@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(CustomCellWithToggle.self, forCellReuseIdentifier: CustomCellWithToggle.identifier)
         tableView.register(CustomCellClean.self, forCellReuseIdentifier: CustomCellClean.identifier)
+        tableView.register(CustomCellWithBadge.self, forCellReuseIdentifier: CustomCellWithBadge.identifier)
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -78,6 +79,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellToggle = tableView.dequeueReusableCell(withIdentifier: CustomCellWithToggle.identifier, for: indexPath) as? CustomCellWithToggle
         let cellClean = tableView.dequeueReusableCell(withIdentifier: CustomCellClean.identifier, for: indexPath) as? CustomCellClean
+        let cellWithBadge = tableView.dequeueReusableCell(withIdentifier: CustomCellWithBadge.identifier, for: indexPath) as? CustomCellWithBadge
         
               // Data
         
@@ -87,6 +89,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         cellToggle?.configureListModel(with: data)
         cellClean?.configureListModel(with: data)
+        cellWithBadge?.configureListModel(with: data)
         
         // Which cell to display
         if indexPath.section == 0 && toggleSections.contains(indexPath.row) {
