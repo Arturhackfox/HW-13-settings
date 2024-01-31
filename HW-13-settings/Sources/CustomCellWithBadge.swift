@@ -45,9 +45,9 @@ class CustomCellWithBadge: UITableViewCell {
         label.textColor = .red
         label.backgroundColor = .red
         label.textAlignment = .center
-        label.layer.cornerRadius = 15
+        label.layer.cornerRadius = 5
         label.layer.masksToBounds = true
-        label.font = .systemFont(ofSize: 35, weight: .light)
+        label.font = .systemFont(ofSize: 45, weight: .light)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label

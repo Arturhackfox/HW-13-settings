@@ -120,7 +120,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         if indexPath.section == 0 && indexPath.row != 0 && indexPath.row != 5 {
             navigationController?.pushViewController(pushVc, animated: true)
-        } 
+        } else {
+            navigationController?.pushViewController(pushVc, animated: true)
+        }
     }
     
     
