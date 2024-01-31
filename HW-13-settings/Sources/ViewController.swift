@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }()
     
     // MARK: - Life cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         listModelData = ListModel.data
@@ -56,9 +56,9 @@ class ViewController: UIViewController {
         ])
     }
     
-
+    
     // MARK: - Actions
-
+    
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -84,7 +84,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let cellWithBadge = tableView.dequeueReusableCell(withIdentifier: CustomCellWithBadge.identifier, for: indexPath) as? CustomCellWithBadge
         let cellWithStatus = tableView.dequeueReusableCell(withIdentifier: CustomCellWithStatus.identifier, for: indexPath) as? CustomCellWithStatus
         
-              // Data
+        // Data
         
         let data = listModelData[indexPath.section][indexPath.row]
         
@@ -105,10 +105,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return cellToggle ?? UITableViewCell()
         } else if indexPath.section == 2 && indexPath.row == 0{
             return cellWithBadge ?? UITableViewCell()
+        } else if indexPath.section == 0 && statusCellIndices.contains(indexPath.row) {
+            return cellWithStatus ?? UITableViewCell()
         } else {
             return cellClean ?? UITableViewCell()
-       
-    }
+            
+        }
     }
     
     // MARK: - Tapped on cell
@@ -132,10 +134,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     // MARK: - Height of row
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
     
-
+    
 }
