@@ -77,4 +77,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    // MARK: - Tapped on cell
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("Нажата ячейка: - \(indexPath.row.description)")
+    }
+    
 }
