@@ -11,8 +11,17 @@ class ViewController: UIViewController {
     
     // MARK: - Variables
     
-    
     // MARK: - Ui
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        return tableView
+    }()
     
     // MARK: - Life cycle
 
@@ -27,11 +36,16 @@ class ViewController: UIViewController {
     // MARK: - Setup
     
     private func setupHierarchy() {
-        
+        view.addSubview(tableView)
     }
     
     private func setupLayout() {
-        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        ])
     }
     
 
@@ -39,3 +53,28 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: - Number of sections
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+    
+    
+    // MARK: - Number of rows
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        2
+    }
+    
+    // MARK: - Cell setup
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "hello"
+        
+        return cell
+    }
+    
+}
