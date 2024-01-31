@@ -12,12 +12,13 @@ struct ListModel: Hashable {
     var imageName: String
     var rowName: String
     var imageBackgroundColor: UIColor
+    var status: String = " "
     
     static var data: [[ListModel]] = [
         // MARK: - Section 1
         [ListModel(imageName: "airplane", rowName: "Авиарежим", imageBackgroundColor: UIColor.systemOrange),
-         ListModel(imageName: "wifi", rowName: "Wi-Fi", imageBackgroundColor: UIColor.systemBlue),
-         ListModel(imageName: "bluetooth", rowName: "Bluetooth", imageBackgroundColor: UIColor.systemBlue),
+         ListModel(imageName: "wifi", rowName: "Wi-Fi", imageBackgroundColor: UIColor.systemBlue, status: "Не подключенно"),
+         ListModel(imageName: "bluetooth", rowName: "Bluetooth", imageBackgroundColor: UIColor.systemBlue, status: "Вкл."),
          ListModel(imageName: "antenna.radiowaves.left.and.right", rowName: "Сотовая связь", imageBackgroundColor: UIColor.customGreen),
          ListModel(imageName: "personalhotspot", rowName: "Режим модема", imageBackgroundColor: UIColor.customGreen),
          ListModel(imageName: "vpn", rowName: "VPN", imageBackgroundColor: UIColor.systemBlue)
