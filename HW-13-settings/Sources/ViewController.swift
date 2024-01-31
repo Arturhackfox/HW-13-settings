@@ -94,6 +94,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         // Which cell to display
         if indexPath.section == 0 && toggleSections.contains(indexPath.row) {
             return cellToggle ?? UITableViewCell()
+        } else if indexPath.section == 2 && indexPath.row == 0{
+            CustomCellWithBadge ?? UITableViewCell()
         } else {
             return cellClean ?? UITableViewCell()
        
