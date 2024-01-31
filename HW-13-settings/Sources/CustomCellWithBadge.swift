@@ -48,7 +48,7 @@ class CustomCellWithBadge: UITableViewCell {
         label.textColor = .white
         label.font = .preferredFont(forTextStyle: .title3)
         label.backgroundColor = .red
-        label.layer.cornerRadius = 11
+        label.layer.cornerRadius = 12
         label.layer.masksToBounds = true
         return label
     }()
@@ -96,7 +96,7 @@ class CustomCellWithBadge: UITableViewCell {
             
             badgeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
             badgeLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            badgeLabel.widthAnchor.constraint(equalToConstant: 30)
+            badgeLabel.widthAnchor.constraint(equalToConstant: 25)
             
         ])
     }
