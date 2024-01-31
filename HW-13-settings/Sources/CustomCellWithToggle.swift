@@ -43,6 +43,15 @@ class CustomCellWithToggle: UITableViewCell {
         return label
     }()
     
+    private lazy var toggleSwitch: UISwitch = {
+        let toggle = UISwitch()
+        toggle.translatesAutoresizingMaskIntoConstraints = false
+        toggle.isOn = false
+        toggle.preferredStyle = .sliding
+        
+        return toggle
+    }()
+    
     
     
     // MARK: - Init
@@ -63,12 +72,13 @@ class CustomCellWithToggle: UITableViewCell {
         addSubview(iconBackground)
         addSubview(iconImage)
         addSubview(rowLabel)
+        addSubview(toggleSwitch)
     }
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
             iconBackground.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            iconBackground.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -345),
+            iconBackground.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -347),
             iconBackground.centerYAnchor.constraint(equalTo: centerYAnchor),
             iconBackground.topAnchor.constraint(equalTo: topAnchor, constant: 7),
             iconBackground.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -7),
@@ -81,6 +91,9 @@ class CustomCellWithToggle: UITableViewCell {
             
             rowLabel.leadingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: 15),
             rowLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            toggleSwitch.centerYAnchor.constraint(equalTo: centerYAnchor),
+            toggleSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
             
         ])
     }
