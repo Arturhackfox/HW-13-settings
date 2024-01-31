@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     private var listModelData = [[ListModel]]()
     private var toggleSections = [0, 5]
+    private var statusCellIndices = [1, 2]
     
     // MARK: - Ui
     
