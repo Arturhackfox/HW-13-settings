@@ -103,13 +103,35 @@ class CustomCellWithToggle: UITableViewCell {
         let vpn = "vpn"
         iconBackground.backgroundColor = model.imageBackgroundColor
         if model.imageName == bluetooth  {
-            iconImage.image = UIImage(named: bluetooth)
+            if let image = UIImage(named: bluetooth){
+                let resizedImage = resizeImage(image, targetSize: CGSize(width: 20, height: 20))
+
+                iconImage.image = resizedImage
+            }
         } else if model.imageName == vpn {
-            iconImage.image = UIImage(named: vpn)
+            if let image = UIImage(named: vpn){
+                let resizedImage = resizeImage(image, targetSize: CGSize(width: 20, height: 20))
+                iconImage.image = resizedImage
+            }
         } else {
             iconImage.image = UIImage(systemName: model.imageName)
 
         }
     }
+    
+    private func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
+          let size = image.size
+          let widthRatio = targetSize.width / size.width
+          let heightRatio = targetSize.height / size.height
+          let newSize = widthRatio > heightRatio ? CGSize(width: size.width * heightRatio, height: size.height * heightRatio) : CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+          
+          let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+          UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+          image.draw(in: rect)
+          let newImage = UIGraphicsGetImageFromCurrentImageContext()
+          UIGraphicsEndImageContext()
+          
+          return newImage ?? UIImage()
+      }
     
 }

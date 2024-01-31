@@ -18,8 +18,8 @@ struct ListModel: Hashable {
         [ListModel(imageName: "airplane", rowName: "Авиарежим", imageBackgroundColor: UIColor.systemOrange),
          ListModel(imageName: "wifi", rowName: "Wi-Fi", imageBackgroundColor: UIColor.systemBlue),
          ListModel(imageName: "bluetooth", rowName: "Bluetooth", imageBackgroundColor: UIColor.systemBlue),
-         ListModel(imageName: "antenna.radiowaves.left.and.right", rowName: "Сотовая связь", imageBackgroundColor: UIColor.green),
-         ListModel(imageName: "personalhotspot", rowName: "Режим модема", imageBackgroundColor: UIColor.green),
+         ListModel(imageName: "antenna.radiowaves.left.and.right", rowName: "Сотовая связь", imageBackgroundColor: UIColor.customGreen),
+         ListModel(imageName: "personalhotspot", rowName: "Режим модема", imageBackgroundColor: UIColor.customGreen),
          ListModel(imageName: "vpn", rowName: "VPN", imageBackgroundColor: UIColor.systemBlue)
         ],
         // MARK: - Section 2
@@ -30,8 +30,8 @@ struct ListModel: Hashable {
          
         ],
         // MARK: - Section 3
-        [ListModel(imageName: "gear", rowName: "Основные", imageBackgroundColor: UIColor.lightGray),
-         ListModel(imageName: "switch.2", rowName: "Пункт управления", imageBackgroundColor: UIColor.lightGray),
+        [ListModel(imageName: "gear", rowName: "Основные", imageBackgroundColor: UIColor.systemGray),
+         ListModel(imageName: "switch.2", rowName: "Пункт управления", imageBackgroundColor: UIColor.systemGray),
          ListModel(imageName: "textformat.size", rowName: "Экран и яркость", imageBackgroundColor: UIColor.systemBlue),
          
         ]
