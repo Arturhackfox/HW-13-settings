@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(CustomCellWithToggle.self, forCellReuseIdentifier: CustomCellWithToggle.identifier)
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -71,8 +71,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Cell setup
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "hello"
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCellWithToggle.identifier, for: indexPath)
+        
         
         return cell
     }
@@ -84,4 +84,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         print("Нажата ячейка: - \(indexPath.row.description)")
     }
     
+    // MARK: - Height of row
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
 }
