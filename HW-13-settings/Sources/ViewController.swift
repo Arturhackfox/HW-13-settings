@@ -101,7 +101,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("Нажата ячейка: - \(indexPath.row.description)")
+        print("Нажата ячейка: - \(listModelData[indexPath.section][indexPath.row].rowName)")
     }
     
     // MARK: - Height of row
