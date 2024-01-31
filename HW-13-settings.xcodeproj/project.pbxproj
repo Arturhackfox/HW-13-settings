@@ -13,6 +13,7 @@
 		324DCC502B6A2D180018E86E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 324DCC4F2B6A2D180018E86E /* Assets.xcassets */; };
 		324DCC532B6A2D180018E86E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324DCC512B6A2D180018E86E /* LaunchScreen.storyboard */; };
 		324DCC5E2B6A37940018E86E /* CustomCellWithToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC5D2B6A37940018E86E /* CustomCellWithToggle.swift */; };
+		324DCC612B6A49870018E86E /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC602B6A49870018E86E /* ListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		324DCC522B6A2D180018E86E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		324DCC542B6A2D180018E86E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		324DCC5D2B6A37940018E86E /* CustomCellWithToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellWithToggle.swift; sourceTree = "<group>"; };
+		324DCC602B6A49870018E86E /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				324DCC5C2B6A2D5A0018E86E /* App */,
 				324DCC5B2B6A2D530018E86E /* Sources */,
+				324DCC5F2B6A49640018E86E /* Models */,
 				324DCC5A2B6A2D490018E86E /* Resources */,
 			);
 			path = "HW-13-settings";
@@ -89,6 +92,14 @@
 				324DCC482B6A2D170018E86E /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		324DCC5F2B6A49640018E86E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				324DCC602B6A49870018E86E /* ListModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 				324DCC472B6A2D170018E86E /* AppDelegate.swift in Sources */,
 				324DCC5E2B6A37940018E86E /* CustomCellWithToggle.swift in Sources */,
 				324DCC492B6A2D170018E86E /* SceneDelegate.swift in Sources */,
+				324DCC612B6A49870018E86E /* ListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
