@@ -12,16 +12,17 @@ struct ListModel: Hashable {
     var imageName: String
     var rowName: String
     var imageBackgroundColor: AppColors
-    var status: String = " "
+    var status: String? = nil
+    var type: CellType = .clean
     
     static var data: [[ListModel]] = [
         // MARK: - Section 1
-        [ListModel(imageName: "airplane", rowName: "Авиарежим", imageBackgroundColor: AppColors.systemOrange),
-         ListModel(imageName: "wifi", rowName: "Wi-Fi", imageBackgroundColor: AppColors.systemBlue, status: "Не подключенно"),
-         ListModel(imageName: "bluetooth", rowName: "Bluetooth", imageBackgroundColor: AppColors.systemBlue, status: "Вкл."),
+        [ListModel(imageName: "airplane", rowName: "Авиарежим", imageBackgroundColor: AppColors.systemOrange, type: .toggle),
+         ListModel(imageName: "wifi", rowName: "Wi-Fi", imageBackgroundColor: AppColors.systemBlue, status: "Не подключенно", type: .describing),
+         ListModel(imageName: "bluetooth", rowName: "Bluetooth", imageBackgroundColor: AppColors.systemBlue, status: "Вкл.", type: .describing),
          ListModel(imageName: "antenna.radiowaves.left.and.right", rowName: "Сотовая связь", imageBackgroundColor: AppColors.customGreen),
          ListModel(imageName: "personalhotspot", rowName: "Режим модема", imageBackgroundColor: AppColors.customGreen),
-         ListModel(imageName: "vpn", rowName: "VPN", imageBackgroundColor: AppColors.systemBlue)
+         ListModel(imageName: "vpn", rowName: "VPN", imageBackgroundColor: AppColors.systemBlue, type: .toggle)
         ],
         // MARK: - Section 2
         [ListModel(imageName: "app.badge", rowName: "Уведомления", imageBackgroundColor: AppColors.red),
@@ -31,7 +32,7 @@ struct ListModel: Hashable {
          
         ],
         // MARK: - Section 3
-        [ListModel(imageName: "gear", rowName: "Основные", imageBackgroundColor: AppColors.gray),
+        [ListModel(imageName: "gear", rowName: "Основные", imageBackgroundColor: AppColors.gray, type: .badge),
          ListModel(imageName: "switch.2", rowName: "Пункт управления", imageBackgroundColor: AppColors.gray),
          ListModel(imageName: "textformat.size", rowName: "Экран и яркость", imageBackgroundColor: AppColors.systemBlue),
          ListModel(imageName: "apps.ipad.landscape", rowName: "Экран Домой", imageBackgroundColor: AppColors.systemBlue),
@@ -68,6 +69,10 @@ struct ListModel: Hashable {
                  UIColor.white
             }
         }
+    }
+    
+    enum CellType {
+        case clean, toggle, describing, badge
     }
 }
 

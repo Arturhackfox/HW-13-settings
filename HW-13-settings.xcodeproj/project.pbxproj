@@ -12,12 +12,9 @@
 		324DCC4B2B6A2D170018E86E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC4A2B6A2D170018E86E /* ViewController.swift */; };
 		324DCC502B6A2D180018E86E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 324DCC4F2B6A2D180018E86E /* Assets.xcassets */; };
 		324DCC532B6A2D180018E86E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324DCC512B6A2D180018E86E /* LaunchScreen.storyboard */; };
-		324DCC5E2B6A37940018E86E /* CustomCellWithToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC5D2B6A37940018E86E /* CustomCellWithToggle.swift */; };
 		324DCC612B6A49870018E86E /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC602B6A49870018E86E /* ListModel.swift */; };
 		324DCC632B6A56470018E86E /* CustomCellClean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC622B6A56470018E86E /* CustomCellClean.swift */; };
 		324DCC652B6A5BF90018E86E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC642B6A5BF90018E86E /* DetailViewController.swift */; };
-		324DCC672B6A5EBB0018E86E /* CustomCellWithBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC662B6A5EBB0018E86E /* CustomCellWithBadge.swift */; };
-		32D4A5D62B6A7F59002C5FC5 /* CustomCellWithStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A5D52B6A7F59002C5FC5 /* CustomCellWithStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +25,9 @@
 		324DCC4F2B6A2D180018E86E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		324DCC522B6A2D180018E86E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		324DCC542B6A2D180018E86E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		324DCC5D2B6A37940018E86E /* CustomCellWithToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellWithToggle.swift; sourceTree = "<group>"; };
 		324DCC602B6A49870018E86E /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		324DCC622B6A56470018E86E /* CustomCellClean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellClean.swift; sourceTree = "<group>"; };
 		324DCC642B6A5BF90018E86E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		324DCC662B6A5EBB0018E86E /* CustomCellWithBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellWithBadge.swift; sourceTree = "<group>"; };
-		32D4A5D52B6A7F59002C5FC5 /* CustomCellWithStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellWithStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,9 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				324DCC622B6A56470018E86E /* CustomCellClean.swift */,
-				324DCC5D2B6A37940018E86E /* CustomCellWithToggle.swift */,
-				324DCC662B6A5EBB0018E86E /* CustomCellWithBadge.swift */,
-				32D4A5D52B6A7F59002C5FC5 /* CustomCellWithStatus.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -200,13 +191,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				324DCC672B6A5EBB0018E86E /* CustomCellWithBadge.swift in Sources */,
 				324DCC632B6A56470018E86E /* CustomCellClean.swift in Sources */,
 				324DCC4B2B6A2D170018E86E /* ViewController.swift in Sources */,
 				324DCC472B6A2D170018E86E /* AppDelegate.swift in Sources */,
 				324DCC652B6A5BF90018E86E /* DetailViewController.swift in Sources */,
-				324DCC5E2B6A37940018E86E /* CustomCellWithToggle.swift in Sources */,
-				32D4A5D62B6A7F59002C5FC5 /* CustomCellWithStatus.swift in Sources */,
 				324DCC492B6A2D170018E86E /* SceneDelegate.swift in Sources */,
 				324DCC612B6A49870018E86E /* ListModel.swift in Sources */,
 			);
