@@ -121,19 +121,20 @@ class CustomCellClean: UITableViewCell {
     // MARK: - Actions
     
     func configureListModel(with model: ListModel) {
+        let targetImageSize = CGSize(width: 20, height: 20)
         
         // Configure Image background / foreground
         
         switch model.imageName {
         case "bluetooth":
             if let image = UIImage(named: "bluetooth"){
-                let resizedImage = resizeImage(image, targetSize: CGSize(width: 20, height: 20))
+                let resizedImage = image.resizeImage(targetSize: targetImageSize)
                 iconImage.image = resizedImage
                 iconBackground.backgroundColor = model.imageBackgroundColor.selectedColor
             }
         case "vpn":
             if let image = UIImage(named: "vpn"){
-                let resizedImage = resizeImage(image, targetSize: CGSize(width: 20, height: 20))
+                let resizedImage = image.resizeImage(targetSize: targetImageSize)
                 iconImage.image = resizedImage
                 iconBackground.backgroundColor = model.imageBackgroundColor.selectedColor
             }
