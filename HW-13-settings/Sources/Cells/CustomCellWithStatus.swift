@@ -1,4 +1,11 @@
 //
+//  CustomCellWithStatus.swift
+//  HW-13-settings
+//
+//  Created by Arthur Sh on 31.01.2024.
+//
+
+//
 //  toggleView.swift
 //  HW-13-settings
 //
@@ -7,10 +14,10 @@
 
 import UIKit
 
-class CustomCellWithBadge: UITableViewCell {
+class CustomCellWithStatus: UITableViewCell {
     // MARK: - Virables
     
-    static var identifier = "CustomCellWithBadge"
+    static var identifier = "CustomCellWithStatus"
     
     // MARK: - Ui
     
@@ -34,27 +41,18 @@ class CustomCellWithBadge: UITableViewCell {
     
     private lazy var rowLabel: UILabel = {
         let label =  UILabel()
-        label.text = "Авиарежим"
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
     
-    private lazy var badgeLabel: UILabel = {
+    private lazy var statusLabel: UILabel = {
         let label =  UILabel()
-        label.text = "1"
-        label.textAlignment = .center
+        label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
-        label.font = .preferredFont(forTextStyle: .title3)
-        label.backgroundColor = .red
-        label.layer.cornerRadius = 12
-        label.layer.masksToBounds = true
+        
         return label
     }()
-    
-    
-    
     
     // MARK: - Init
     
@@ -74,7 +72,7 @@ class CustomCellWithBadge: UITableViewCell {
         addSubview(iconBackground)
         addSubview(iconImage)
         addSubview(rowLabel)
-        addSubview(badgeLabel)
+        addSubview(statusLabel)
     }
     
     private func setupLayout() {
@@ -93,24 +91,22 @@ class CustomCellWithBadge: UITableViewCell {
             
             rowLabel.leadingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: 15),
             rowLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
-            badgeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
-            badgeLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            badgeLabel.widthAnchor.constraint(equalToConstant: 25)
+ 
+            statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
+            statusLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
             
         ])
     }
     
     // MARK: - Actions
-    
+
     func configureListModel(with model: ListModel) {
         let bluetooth = "bluetooth"
         let vpn = "vpn"
-        iconBackground.backgroundColor = model.imageBackgroundColor
         if model.imageName == bluetooth  {
             if let image = UIImage(named: bluetooth){
                 let resizedImage = resizeImage(image, targetSize: CGSize(width: 20, height: 20))
-                
+
                 iconImage.image = resizedImage
             }
         } else if model.imageName == vpn {
@@ -121,22 +117,26 @@ class CustomCellWithBadge: UITableViewCell {
         } else {
             iconImage.image = UIImage(systemName: model.imageName)
         }
+        statusLabel.text = model.status
         rowLabel.text = model.rowName
     }
     
     private func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
-        let size = image.size
-        let widthRatio = targetSize.width / size.width
-        let heightRatio = targetSize.height / size.height
-        let newSize = widthRatio > heightRatio ? CGSize(width: size.width * heightRatio, height: size.height * heightRatio) : CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
-        
-        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.draw(in: rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage ?? UIImage()
-    }
+          let size = image.size
+          let widthRatio = targetSize.width / size.width
+          let heightRatio = targetSize.height / size.height
+          let newSize = widthRatio > heightRatio ? CGSize(width: size.width * heightRatio, height: size.height * heightRatio) : CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+          
+          let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+          UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+          image.draw(in: rect)
+          let newImage = UIGraphicsGetImageFromCurrentImageContext()
+          UIGraphicsEndImageContext()
+          
+          return newImage ?? UIImage()
+      }
+
+
     
 }
+

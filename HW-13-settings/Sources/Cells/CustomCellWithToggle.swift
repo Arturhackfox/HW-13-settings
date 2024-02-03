@@ -43,7 +43,6 @@ class CustomCellWithToggle: UITableViewCell {
     
     private lazy var toggleSwitch: UISwitch = {
         let toggle = UISwitch()
-        toggle.translatesAutoresizingMaskIntoConstraints = false
         toggle.setOn(false, animated: true)
         toggle.addTarget(self, action: #selector(switchValueChanged), for: .touchUpInside)
         
@@ -101,7 +100,6 @@ class CustomCellWithToggle: UITableViewCell {
     func configureListModel(with model: ListModel) {
         let bluetooth = "bluetooth"
         let vpn = "vpn"
-        iconBackground.backgroundColor = model.imageBackgroundColor
         if model.imageName == bluetooth  {
             if let image = UIImage(named: bluetooth){
                 let resizedImage = resizeImage(image, targetSize: CGSize(width: 20, height: 20))

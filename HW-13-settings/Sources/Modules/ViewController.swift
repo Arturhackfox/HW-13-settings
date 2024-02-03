@@ -121,7 +121,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         // Navigate to selected row
         
-        let pushVc = DetailView()
+        let pushVc = DetailViewController()
         let data = listModelData[indexPath.section][indexPath.row]
         pushVc.listModel = data
         

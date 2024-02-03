@@ -1,12 +1,5 @@
 //
-//  CustomCellWithStatus.swift
-//  HW-13-settings
-//
-//  Created by Arthur Sh on 31.01.2024.
-//
-
-//
-//  toggleView.swift
+//  CustomCellClean.swift
 //  HW-13-settings
 //
 //  Created by Arthur Sh on 31.01.2024.
@@ -14,10 +7,10 @@
 
 import UIKit
 
-class CustomCellWithStatus: UITableViewCell {
+class CustomCellClean: UITableViewCell {
     // MARK: - Virables
     
-    static var identifier = "CustomCellWithStatus"
+    static var identifier = "CustomCellClean"
     
     // MARK: - Ui
     
@@ -41,17 +34,18 @@ class CustomCellWithStatus: UITableViewCell {
     
     private lazy var rowLabel: UILabel = {
         let label =  UILabel()
+        label.text = "Авиарежим"
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
     
-    private lazy var statusLabel: UILabel = {
-        let label =  UILabel()
-        label.textColor = .gray
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var toggleSwitch: UISwitch = {
+        let toggle = UISwitch()
+        toggle.setOn(false, animated: true)
+        toggle.addTarget(self, action: #selector(switchValueChanged), for: .touchUpInside)
         
-        return label
+        return toggle
     }()
     
     // MARK: - Init
@@ -72,7 +66,6 @@ class CustomCellWithStatus: UITableViewCell {
         addSubview(iconBackground)
         addSubview(iconImage)
         addSubview(rowLabel)
-        addSubview(statusLabel)
     }
     
     private func setupLayout() {
@@ -90,20 +83,16 @@ class CustomCellWithStatus: UITableViewCell {
             iconImage.trailingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: -5),
             
             rowLabel.leadingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: 15),
-            rowLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
- 
-            statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
-            statusLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-            
+            rowLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
     // MARK: - Actions
-
+    
     func configureListModel(with model: ListModel) {
         let bluetooth = "bluetooth"
         let vpn = "vpn"
-        iconBackground.backgroundColor = model.imageBackgroundColor
+        iconBackground.backgroundColor = model.imageBackgroundColor.selectedColor
         if model.imageName == bluetooth  {
             if let image = UIImage(named: bluetooth){
                 let resizedImage = resizeImage(image, targetSize: CGSize(width: 20, height: 20))
@@ -118,7 +107,6 @@ class CustomCellWithStatus: UITableViewCell {
         } else {
             iconImage.image = UIImage(systemName: model.imageName)
         }
-        statusLabel.text = model.status
         rowLabel.text = model.rowName
     }
     
@@ -136,8 +124,6 @@ class CustomCellWithStatus: UITableViewCell {
           
           return newImage ?? UIImage()
       }
-
-
     
+    @objc private func switchValueChanged() {}
 }
-
