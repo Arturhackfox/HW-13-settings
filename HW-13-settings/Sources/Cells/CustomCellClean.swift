@@ -23,7 +23,7 @@ class CustomCellClean: UITableViewCell {
         return imageView
     }()
     
-    private lazy var iconBackground: UILabel = {
+    private lazy var iconBackground: UIView = {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 7
@@ -176,21 +176,6 @@ class CustomCellClean: UITableViewCell {
             statusLabel.isHidden = true
         }
         
-    }
-    
-    private func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
-        let size = image.size
-        let widthRatio = targetSize.width / size.width
-        let heightRatio = targetSize.height / size.height
-        let newSize = widthRatio > heightRatio ? CGSize(width: size.width * heightRatio, height: size.height * heightRatio) : CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
-        
-        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.draw(in: rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage ?? UIImage()
     }
     
     @objc private func switchValueChanged() {}
