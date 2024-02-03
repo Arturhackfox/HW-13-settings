@@ -66,8 +66,6 @@ struct ListModel: Hashable {
                  UIColor.systemOrange
             case .red:
                 UIColor.red
-            default:
-                 UIColor.white
             }
         }
     }

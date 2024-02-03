@@ -126,14 +126,8 @@ class CustomCellClean: UITableViewCell {
         // Configure Image background / foreground
         
         switch model.imageName {
-        case "bluetooth":
-            if let image = UIImage(named: "bluetooth"){
-                let resizedImage = image.resizeImage(targetSize: targetImageSize)
-                iconImage.image = resizedImage
-                iconBackground.backgroundColor = model.imageBackgroundColor.selectedColor
-            }
-        case "vpn":
-            if let image = UIImage(named: "vpn"){
+        case "bluetooth", "vpn":
+            if let image = UIImage(named: model.imageName){
                 let resizedImage = image.resizeImage(targetSize: targetImageSize)
                 iconImage.image = resizedImage
                 iconBackground.backgroundColor = model.imageBackgroundColor.selectedColor
@@ -144,37 +138,28 @@ class CustomCellClean: UITableViewCell {
         }
         
         // Configure cell view based on selected type
-        
+        rowLabel.text = model.rowName
+        accessoryType = .disclosureIndicator
+
         switch model.type {
         case .clean:
-            accessoryType = .disclosureIndicator
-            rowLabel.text = model.rowName
             badgeLabel.isHidden = true
-            toggleSwitch.isHidden = true
             statusLabel.isHidden = true
             
             
         case .describing:
-            accessoryType = .disclosureIndicator
-            rowLabel.text = model.rowName
-            statusLabel.text = model.status
+                       statusLabel.text = model.status
             badgeLabel.isHidden = true
-            toggleSwitch.isHidden = true
             
         case .badge:
-            accessoryType = .disclosureIndicator
-            rowLabel.text = model.rowName
             badgeLabel.text = model.badgeCount
             statusLabel.isHidden = true
-            toggleSwitch.isHidden = true
             
             
         case .toggle:
             selectionStyle = .none
+            accessoryType = .none
             accessoryView = toggleSwitch
-            rowLabel.text = model.rowName
-            badgeLabel.isHidden = true
-            statusLabel.isHidden = true
         }
         
     }
