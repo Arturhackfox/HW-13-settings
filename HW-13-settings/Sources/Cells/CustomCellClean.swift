@@ -1,5 +1,5 @@
 //
-//  toggleView.swift
+//  CustomCellClean.swift
 //  HW-13-settings
 //
 //  Created by Arthur Sh on 31.01.2024.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class CustomCellWithBadge: UITableViewCell {
+class CustomCellClean: UITableViewCell {
     // MARK: - Virables
     
-    static var identifier = "CustomCellWithBadge"
+    static var identifier = "CustomCellClean"
     
     // MARK: - Ui
     
@@ -40,9 +40,24 @@ class CustomCellWithBadge: UITableViewCell {
         return label
     }()
     
+    private lazy var toggleSwitch: UISwitch = {
+        let toggle = UISwitch()
+        toggle.setOn(false, animated: true)
+        toggle.addTarget(self, action: #selector(switchValueChanged), for: .touchUpInside)
+        
+        return toggle
+    }()
+    
+    private lazy var statusLabel: UILabel = {
+        let label =  UILabel()
+        label.textColor = .gray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
     private lazy var badgeLabel: UILabel = {
         let label =  UILabel()
-        label.text = "1"
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
@@ -52,9 +67,6 @@ class CustomCellWithBadge: UITableViewCell {
         label.layer.masksToBounds = true
         return label
     }()
-    
-    
-    
     
     // MARK: - Init
     
@@ -74,13 +86,14 @@ class CustomCellWithBadge: UITableViewCell {
         addSubview(iconBackground)
         addSubview(iconImage)
         addSubview(rowLabel)
+        addSubview(statusLabel)
         addSubview(badgeLabel)
     }
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
             iconBackground.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            iconBackground.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -347),
+            iconBackground.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -307),
             iconBackground.centerYAnchor.constraint(equalTo: centerYAnchor),
             iconBackground.topAnchor.constraint(equalTo: topAnchor, constant: 7),
             iconBackground.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -7),
@@ -94,9 +107,13 @@ class CustomCellWithBadge: UITableViewCell {
             rowLabel.leadingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: 15),
             rowLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
+            statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
+            statusLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
             badgeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
             badgeLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             badgeLabel.widthAnchor.constraint(equalToConstant: 25)
+            
             
         ])
     }
@@ -104,24 +121,61 @@ class CustomCellWithBadge: UITableViewCell {
     // MARK: - Actions
     
     func configureListModel(with model: ListModel) {
-        let bluetooth = "bluetooth"
-        let vpn = "vpn"
-        iconBackground.backgroundColor = model.imageBackgroundColor
-        if model.imageName == bluetooth  {
-            if let image = UIImage(named: bluetooth){
-                let resizedImage = resizeImage(image, targetSize: CGSize(width: 20, height: 20))
-                
-                iconImage.image = resizedImage
-            }
-        } else if model.imageName == vpn {
-            if let image = UIImage(named: vpn){
+        
+        // Configure Image background / foreground
+        
+        switch model.imageName {
+        case "bluetooth":
+            if let image = UIImage(named: "bluetooth"){
                 let resizedImage = resizeImage(image, targetSize: CGSize(width: 20, height: 20))
                 iconImage.image = resizedImage
+                iconBackground.backgroundColor = model.imageBackgroundColor.selectedColor
             }
-        } else {
+        case "vpn":
+            if let image = UIImage(named: "vpn"){
+                let resizedImage = resizeImage(image, targetSize: CGSize(width: 20, height: 20))
+                iconImage.image = resizedImage
+                iconBackground.backgroundColor = model.imageBackgroundColor.selectedColor
+            }
+        default:
+            iconBackground.backgroundColor = model.imageBackgroundColor.selectedColor
             iconImage.image = UIImage(systemName: model.imageName)
         }
-        rowLabel.text = model.rowName
+        
+        // Configure cell view based on selected type
+        
+        switch model.type {
+        case .clean:
+            accessoryType = .disclosureIndicator
+            rowLabel.text = model.rowName
+            badgeLabel.isHidden = true
+            toggleSwitch.isHidden = true
+            statusLabel.isHidden = true
+            
+            
+        case .describing:
+            accessoryType = .disclosureIndicator
+            rowLabel.text = model.rowName
+            statusLabel.text = model.status
+            badgeLabel.isHidden = true
+            toggleSwitch.isHidden = true
+            
+        case .badge:
+            accessoryType = .disclosureIndicator
+            rowLabel.text = model.rowName
+            badgeLabel.text = model.badgeCount
+            statusLabel.isHidden = true
+            toggleSwitch.isHidden = true
+            
+            
+        case .toggle:
+            selectionStyle = .none
+            accessoryView = toggleSwitch
+            rowLabel.text = model.rowName
+            badgeLabel.isHidden = true
+            statusLabel.isHidden = true
+        }
+        
     }
     
     private func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
@@ -139,4 +193,16 @@ class CustomCellWithBadge: UITableViewCell {
         return newImage ?? UIImage()
     }
     
+    @objc private func switchValueChanged() {}
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        accessoryType = .none
+        accessoryView = .none
+    }
 }
+
+#Preview {
+    ViewController()
+}
+

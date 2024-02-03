@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailView: UIViewController {
+class DetailViewController: UIViewController {
     
     var listModel: ListModel?
     
