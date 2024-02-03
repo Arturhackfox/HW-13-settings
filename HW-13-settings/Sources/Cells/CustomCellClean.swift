@@ -122,7 +122,7 @@ class CustomCellClean: UITableViewCell {
     
     func configureListModel(with model: ListModel) {
         
-        // MARK: Image background / foreground setup
+        // Configure Image background / foreground
         
         switch model.imageName {
         case "bluetooth":
@@ -142,6 +142,8 @@ class CustomCellClean: UITableViewCell {
             iconImage.image = UIImage(systemName: model.imageName)
         }
         
+        // Configure cell view based on selected type
+        
         switch model.type {
         case .clean:
             accessoryType = .disclosureIndicator
@@ -154,17 +156,20 @@ class CustomCellClean: UITableViewCell {
         case .describing:
             accessoryType = .disclosureIndicator
             rowLabel.text = model.rowName
+            statusLabel.text = model.status
             badgeLabel.isHidden = true
             toggleSwitch.isHidden = true
             
         case .badge:
             accessoryType = .disclosureIndicator
             rowLabel.text = model.rowName
+            badgeLabel.text = model.badgeCount
             statusLabel.isHidden = true
             toggleSwitch.isHidden = true
             
             
         case .toggle:
+            selectionStyle = .none
             accessoryView = toggleSwitch
             rowLabel.text = model.rowName
             badgeLabel.isHidden = true
@@ -189,6 +194,12 @@ class CustomCellClean: UITableViewCell {
     }
     
     @objc private func switchValueChanged() {}
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        accessoryType = .none
+        accessoryView = .none
+    }
 }
 
 #Preview {

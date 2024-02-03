@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     // MARK: - Setup
     
     private func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         title = "Настройки"
     }
     

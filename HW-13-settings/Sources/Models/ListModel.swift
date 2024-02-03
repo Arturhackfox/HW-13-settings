@@ -14,6 +14,7 @@ struct ListModel: Hashable {
     var imageBackgroundColor: AppColors
     var status: String? = nil
     var type: CellType = .clean
+    var badgeCount: String = "1"
     
     static var data: [[ListModel]] = [
         // MARK: - Section 1
