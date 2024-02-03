@@ -15,6 +15,7 @@
 		324DCC612B6A49870018E86E /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC602B6A49870018E86E /* ListModel.swift */; };
 		324DCC632B6A56470018E86E /* CustomCellClean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC622B6A56470018E86E /* CustomCellClean.swift */; };
 		324DCC652B6A5BF90018E86E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC642B6A5BF90018E86E /* DetailViewController.swift */; };
+		32D4A6372B6E7892002C5FC5 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A6362B6E7892002C5FC5 /* UIImage+Resize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		324DCC602B6A49870018E86E /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		324DCC622B6A56470018E86E /* CustomCellClean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellClean.swift; sourceTree = "<group>"; };
 		324DCC642B6A5BF90018E86E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		32D4A6362B6E7892002C5FC5 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		324DCC452B6A2D170018E86E /* HW-13-settings */ = {
 			isa = PBXGroup;
 			children = (
+				32D4A6352B6E7880002C5FC5 /* Extensions */,
 				324DCC5C2B6A2D5A0018E86E /* App */,
 				324DCC5B2B6A2D530018E86E /* Sources */,
 				324DCC5A2B6A2D490018E86E /* Resources */,
@@ -119,6 +122,14 @@
 				324DCC622B6A56470018E86E /* CustomCellClean.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		32D4A6352B6E7880002C5FC5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				32D4A6362B6E7892002C5FC5 /* UIImage+Resize.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D4A6372B6E7892002C5FC5 /* UIImage+Resize.swift in Sources */,
 				324DCC632B6A56470018E86E /* CustomCellClean.swift in Sources */,
 				324DCC4B2B6A2D170018E86E /* ViewController.swift in Sources */,
 				324DCC472B6A2D170018E86E /* AppDelegate.swift in Sources */,
