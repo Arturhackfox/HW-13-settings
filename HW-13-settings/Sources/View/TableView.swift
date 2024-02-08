@@ -1,17 +1,29 @@
 //
-//  ViewController.swift
+//  TableView.swift
 //  HW-13-settings
 //
-//  Created by Arthur Sh on 31.01.2024.
+//  Created by Arthur Sh on 08.02.2024.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol TableViewDelegate: AnyObject {
+    func pushViewController(vc: UIViewController)
+}
+
+class TableView: UIView {
     
-    // MARK: - Variables
+    // MARK: Received data
+        
+     weak var delegate: TableViewDelegate?
+     var listModelData = [[ListModel]]()
     
-    private var listModelData: [[ListModel]] = ListModel.data
+    // MARK: - Configure
+    
+    func configure(with data: [[ListModel]], controller: UIViewController) {
+        listModelData = data
+        delegate = controller as? TableViewDelegate 
+    }
     
     // MARK: - Ui
     
@@ -25,38 +37,40 @@ class ViewController: UIViewController {
         return tableView
     }()
     
-    // MARK: - Life cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupView()
         setupHierarchy()
         setupLayout()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     // MARK: - Setup
     
     private func setupView() {
-        view.backgroundColor = .systemBackground
-        title = "Настройки"
+        backgroundColor = .systemBackground
     }
     
     private func setupHierarchy() {
-        view.addSubview(tableView)
+        addSubview(tableView)
     }
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor)
         ])
     }
     
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension TableView: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Number of sections
     
@@ -99,7 +113,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         guard data.type != .toggle else { return }
         
-        navigationController?.pushViewController(pushVc, animated: true)
+        // MARK: - !!!!!!!!!!!!!!!!!!!!!
+        delegate?.pushViewController(vc: pushVc)
+//        navigationController?.pushViewController(pushVc, animated: true)
     }
     
     
@@ -110,8 +126,4 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     
-}
-
-#Preview {
-    ViewController()
 }
