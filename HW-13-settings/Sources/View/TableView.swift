@@ -7,16 +7,22 @@
 
 import UIKit
 
+protocol TableViewDelegate: AnyObject {
+    func pushViewController(vc: UIViewController)
+}
+
 class TableView: UIView {
     
-    // MARK: Data to be displayed on views
-    
+    // MARK: Received data
+        
+     weak var delegate: TableViewDelegate?
      var listModelData = [[ListModel]]()
     
     // MARK: - Configure
     
-    func configure(with data: [[ListModel]]) {
+    func configure(with data: [[ListModel]], controller: UIViewController) {
         listModelData = data
+        delegate = controller as? TableViewDelegate 
     }
     
     // MARK: - Ui
@@ -108,7 +114,8 @@ extension TableView: UITableViewDataSource, UITableViewDelegate {
         guard data.type != .toggle else { return }
         
         // MARK: - !!!!!!!!!!!!!!!!!!!!!
-        navigationController?.pushViewController(pushVc, animated: true)
+        delegate?.pushViewController(vc: pushVc)
+//        navigationController?.pushViewController(pushVc, animated: true)
     }
     
     

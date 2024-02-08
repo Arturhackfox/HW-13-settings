@@ -41,10 +41,15 @@ final class ViewController: UIViewController {
 extension ViewController {
     private func configure() {
         guard let receivedData = model?.createModels() else { return }
-        tableView?.configure(with: receivedData)
+        tableView?.configure(with: receivedData, controller: self)
     }
 }
 
+extension ViewController: TableViewDelegate {
+    func pushViewController(vc: UIViewController) {
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
 
 #Preview {
     ViewController()
