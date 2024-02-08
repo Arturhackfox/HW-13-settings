@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3223389D2B74BEF300A5FBD8 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223389C2B74BEF300A5FBD8 /* TableView.swift */; };
+		3223389F2B74C2C100A5FBD8 /* ListModelToInitialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223389E2B74C2C100A5FBD8 /* ListModelToInitialize.swift */; };
 		324DCC472B6A2D170018E86E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC462B6A2D170018E86E /* AppDelegate.swift */; };
 		324DCC492B6A2D170018E86E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC482B6A2D170018E86E /* SceneDelegate.swift */; };
 		324DCC4B2B6A2D170018E86E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC4A2B6A2D170018E86E /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3223389C2B74BEF300A5FBD8 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		3223389E2B74C2C100A5FBD8 /* ListModelToInitialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModelToInitialize.swift; sourceTree = "<group>"; };
 		324DCC432B6A2D170018E86E /* HW-13-settings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HW-13-settings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		324DCC462B6A2D170018E86E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		324DCC482B6A2D170018E86E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				32D4A6352B6E7880002C5FC5 /* Extensions */,
-				324DCC5C2B6A2D5A0018E86E /* App */,
 				324DCC5B2B6A2D530018E86E /* Sources */,
 				324DCC5A2B6A2D490018E86E /* Resources */,
 			);
@@ -83,9 +86,10 @@
 		324DCC5B2B6A2D530018E86E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32D4A6332B6E6365002C5FC5 /* Modules */,
-				32D4A6342B6E6371002C5FC5 /* Cells */,
-				324DCC5F2B6A49640018E86E /* Models */,
+				324DCC5C2B6A2D5A0018E86E /* App */,
+				32D4A6332B6E6365002C5FC5 /* Controller */,
+				32D4A6342B6E6371002C5FC5 /* View */,
+				324DCC5F2B6A49640018E86E /* Model */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -99,29 +103,31 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		324DCC5F2B6A49640018E86E /* Models */ = {
+		324DCC5F2B6A49640018E86E /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				324DCC602B6A49870018E86E /* ListModel.swift */,
+				3223389E2B74C2C100A5FBD8 /* ListModelToInitialize.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		32D4A6332B6E6365002C5FC5 /* Modules */ = {
+		32D4A6332B6E6365002C5FC5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				324DCC4A2B6A2D170018E86E /* ViewController.swift */,
 				324DCC642B6A5BF90018E86E /* DetailViewController.swift */,
 			);
-			path = Modules;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		32D4A6342B6E6371002C5FC5 /* Cells */ = {
+		32D4A6342B6E6371002C5FC5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3223389C2B74BEF300A5FBD8 /* TableView.swift */,
 				324DCC622B6A56470018E86E /* CustomCellClean.swift */,
 			);
-			path = Cells;
+			path = View;
 			sourceTree = "<group>";
 		};
 		32D4A6352B6E7880002C5FC5 /* Extensions */ = {
@@ -207,6 +213,8 @@
 				324DCC4B2B6A2D170018E86E /* ViewController.swift in Sources */,
 				324DCC472B6A2D170018E86E /* AppDelegate.swift in Sources */,
 				324DCC652B6A5BF90018E86E /* DetailViewController.swift in Sources */,
+				3223389D2B74BEF300A5FBD8 /* TableView.swift in Sources */,
+				3223389F2B74C2C100A5FBD8 /* ListModelToInitialize.swift in Sources */,
 				324DCC492B6A2D170018E86E /* SceneDelegate.swift in Sources */,
 				324DCC612B6A49870018E86E /* ListModel.swift in Sources */,
 			);
